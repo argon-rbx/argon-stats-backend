@@ -1,0 +1,22 @@
+[package]
+name = "argon-stats-backend"
+version = "0.1.0"
+edition = "2021"
+authors = ["Dervex"]
+description = "Argon's stats database and API backend"
+repository = "https://github.com/argon-rbx/argon-stats-backend"
+homepage = "https://argon.wiki"
+license = "Apache-2.0"
+
+[lib]
+name = "db"
+path = "src/lib.rs"
+
+[[bin]]
+name = "hours_used"
+path = "api/hours_used.rs"
+
+[dependencies]
+tokio = { version = "1.37.0", features = ["macros"] }
+vercel_runtime = "1.1.1"
+redis = "0.25.2"
