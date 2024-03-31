@@ -9,14 +9,22 @@ homepage = "https://argon.wiki"
 license = "Apache-2.0"
 
 [lib]
-name = "db"
+name = "argon"
 path = "src/lib.rs"
 
 [[bin]]
-name = "hours_used"
-path = "api/hours_used.rs"
+name = "pull"
+path = "api/pull.rs"
+
+[[bin]]
+name = "push"
+path = "api/push.rs"
 
 [dependencies]
-tokio = { version = "1.37.0", features = ["macros"] }
-vercel_runtime = "1.1.1"
+url = "2.5.0"
 redis = "0.25.2"
+vercel_runtime = "1.1.1"
+struct-util = { version = "*", path = "crates/struct-util" }
+tokio = { version = "1.37.0", features = ["macros"] }
+serde_json = { version = "1.0.115", features = ["raw_value"] }
+serde = { version = "1.0.197", features = ["derive"] }

@@ -31,7 +31,11 @@ name = "argon-stats-backend"
 version = "0.1.0"
 dependencies = [
  "redis",
+ "serde",
+ "serde_json",
+ "struct-util",
  "tokio",
+ "url",
  "vercel_runtime",
 ]
 
@@ -717,6 +721,15 @@ checksum = "05ffd9c0a93b7543e062e759284fcf5f5e3b098501104bfbdde4d404db792871"
 dependencies = [
  "libc",
  "windows-sys 0.52.0",
+]
+
+[[package]]
+name = "struct-util"
+version = "0.1.0"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.57",
 ]
 
 [[package]]
