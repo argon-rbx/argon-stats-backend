@@ -39,6 +39,7 @@ pub async fn pull(request: Request) -> Result<Response<Body>, Error> {
 
 		Ok(Response::builder()
 			.status(StatusCode::OK)
+			.header("Access-Control-Allow-Origin", "https://argon.wiki")
 			.body(json!(argon_stats).to_string().into())?)
 	}
 }
