@@ -6,12 +6,12 @@
   },
   "rewrites": [
     {
-      "source": "/api/pull",
-      "destination": "/api/pull"
+      "source": "/:match",
+      "destination": "/api/:match"
     },
     {
-      "source": "/api/push",
-      "destination": "/api/push"
+      "source": "/",
+      "destination": "/api/root"
     }
   ]
 }
