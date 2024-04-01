@@ -8,7 +8,7 @@ async fn main() -> Result<(), Error> {
 pub async fn root(_request: Request) -> Result<Response<Body>, Error> {
 	Ok(Response::builder().status(StatusCode::OK).body(
 		"Available Argon stats API endpoints:\n\n\
-		/pull?auth={token}&stat={name?}\n\
+		/pull?stat={name?}\n\
 		/push?auth={token}"
 			.into(),
 	)?)

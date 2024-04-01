@@ -1,4 +1,4 @@
-use argon::{authorize, get_connection, get_query, ArgonStats};
+use argon::{get_connection, get_query, ArgonStats};
 use redis::Commands;
 use serde_json::json;
 use vercel_runtime::{run, Body, Error, Request, Response, StatusCode};
@@ -10,10 +10,6 @@ async fn main() -> Result<(), Error> {
 
 pub async fn pull(request: Request) -> Result<Response<Body>, Error> {
 	let query = get_query(&request);
-
-	if let Some(fail) = authorize(&query) {
-		return Ok(fail);
-	}
 
 	let mut redis = get_connection()?;
 
