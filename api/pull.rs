@@ -1,4 +1,4 @@
-use argon::{get_connection, get_query, ArgonStats};
+use argon::{get_connection, get_query, ArgonStats, CACHE_CONTROL};
 use redis::Commands;
 use serde_json::json;
 use vercel_runtime::{run, Body, Error, Request, Response, StatusCode};
@@ -19,6 +19,7 @@ pub async fn pull(request: Request) -> Result<Response<Body>, Error> {
 		if let Some(value) = value {
 			Ok(Response::builder()
 				.status(StatusCode::OK)
+				.header("Cache-Control", CACHE_CONTROL)
 				.body(value.to_string().into())?)
 		} else {
 			Ok(Response::builder()
@@ -39,6 +40,7 @@ pub async fn pull(request: Request) -> Result<Response<Body>, Error> {
 
 		Ok(Response::builder()
 			.status(StatusCode::OK)
+			.header("Cache-Control", CACHE_CONTROL)
 			.header("Access-Control-Allow-Origin", "https://argon.wiki")
 			.body(json!(argon_stats).to_string().into())?)
 	}

@@ -5,13 +5,16 @@ use struct_util::{Get, Iter, Set};
 use url::Url;
 use vercel_runtime::{Body, Request, Response, StatusCode};
 
+pub const CACHE_CONTROL: &str = "public, s-maxage=600";
+
 #[derive(Debug, Default, Serialize, Deserialize, Iter, Get, Set)]
 pub struct ArgonStats {
 	pub hours_used: u64,
-	pub lines_synced: u64,
 	pub files_synced: u64,
-	pub sessions_started: u64,
+	pub lines_synced: u64,
+	pub projects_created: u64,
 	pub projects_built: u64,
+	pub sessions_started: u64,
 }
 
 pub fn get_query(request: &Request) -> HashMap<String, String> {
