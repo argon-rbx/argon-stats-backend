@@ -5,4 +5,7 @@
 
 # Stats backend
 
-Argon's stats database uses [Redis](https://redis.io/) and API backend is hosted on [Vercel](https://vercel.com/). See the stats in action on [Argon's official website](https://argon.wiki/).
+Argon's stats backend uses [Redis](https://redis.io/) database hosted on [Upstash](https://upstash.com/) and its API runs on [Vercel](https://vercel.com/).
+
+- See the stats in action on [argon.wiki](https://argon.wiki/) website
+- Interact with the API using [api.argon.wiki](https://api.argon.wiki/) endpoint
